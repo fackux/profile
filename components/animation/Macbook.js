@@ -27,8 +27,8 @@ export default function Macbook(props) {
 					const animation = mixer.clipAction(subclip, group.current, THREE.LoopOnce);
 					animation.clampWhenFinished = true;
 					animation.setLoop(THREE.LoopOnce);
-					//animation.play();
-					//rotateOnEnter.play();
+					animation.play();
+					rotateOnEnter.play();
 				},
 			})
 
