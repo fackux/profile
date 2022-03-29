@@ -6,7 +6,7 @@ import * as THREE from "three";
 
 export default function Macbook(props) {
 	const group = useRef();
-	const { nodes, materials, animations } = useGLTF("/models/macbook/scene-transformed.glb");
+	const { nodes, materials, animations } = useGLTF("/models/macbook/scene.gltf");
 	const { actions, mixer } = useAnimations(animations, group);
 
 	useEffect(() => {
@@ -305,4 +305,4 @@ export default function Macbook(props) {
 	);
 }
 
-useGLTF.preload("/models/macbook/scene-transformed.glb");
+useGLTF.preload("/models/macbook/scene.gltf");
