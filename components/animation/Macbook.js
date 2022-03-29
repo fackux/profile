@@ -23,7 +23,7 @@ export default function Macbook(props) {
 
 			GSAP.timeline({
 				onComplete: () => {
-					const subclip = THREE.AnimationUtils.subclip(animations[0], 'Take_001', 0, 100);
+					const subclip = THREE.AnimationUtils.subclip(animations[0], 'Take_001', 0, 110);
 					const animation = mixer.clipAction(subclip, group.current, THREE.LoopOnce);
 					animation.clampWhenFinished = true;
 					animation.setLoop(THREE.LoopOnce);

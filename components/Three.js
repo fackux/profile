@@ -11,7 +11,7 @@ softShadows({
 	frustum: 3.75,
 	size: 0.005,
 	near: 9.5,
-	samples: 17,
+	samples: 25,
 	rings: 11, // Rings (default: 11) must be a int
 });
 
@@ -49,8 +49,30 @@ const Three = () => {
 				shadow-camera-top={10}
 				shadow-camera-bottom={-10}
 			/>
-			<pointLight position={[-10, 0, -20]} intensity={2.5} />
-			<pointLight position={[0, -10, 0]} intensity={1.5} />
+			<pointLight
+				position={[-10, 0, -20]}
+				intensity={2.5}
+				castShadow
+				shadow-mapSize-width={1024}
+				shadow-mapSize-height={1024}
+				shadow-camera-far={50}
+				shadow-camera-left={-10}
+				shadow-camera-right={10}
+				shadow-camera-top={10}
+				shadow-camera-bottom={-10}
+			/>
+			<pointLight
+				position={[0, -10, 0]}
+				intensity={1.5}
+				castShadow
+				shadow-mapSize-width={1024}
+				shadow-mapSize-height={1024}
+				shadow-camera-far={50}
+				shadow-camera-left={-10}
+				shadow-camera-right={10}
+				shadow-camera-top={10}
+				shadow-camera-bottom={-10}
+			/>
 
 			{/* Controld e Camera */}
 			<OrbitControls
