@@ -13,43 +13,46 @@ export default function Macbook(props) {
 		if (!!group.current) {
 			const rotateOnEnter = GSAP.timeline({
 				repeat: -1,
-			})
-				.paused(true)
-				.to(group.current.rotation, {
-					y: a2r(360),
-					duration: 5,
-					ease: "linear",
-				});
+			});
+			rotateOnEnter.paused(true);
+			rotateOnEnter.to(group.current.rotation, {
+				y: a2r(360),
+				duration: 5,
+				ease: "linear",
+			});
 
-			GSAP.timeline({
+			const tl = GSAP.timeline({
 				onComplete: () => {
-					const subclip = THREE.AnimationUtils.subclip(animations[0], 'Take_001', 0, 110);
+					const subclip = THREE.AnimationUtils.subclip(animations[0], "Take_001", 0, 100);
 					const animation = mixer.clipAction(subclip, group.current, THREE.LoopOnce);
 					animation.clampWhenFinished = true;
 					animation.setLoop(THREE.LoopOnce);
 					animation.play();
 					rotateOnEnter.play();
 				},
-			})
+				delay: 2,
+				stagger: 0.1,
+			});
 
-				.from(
-					group.current.position,
-					{
-						z: -3,
-						y: 2,
-						duration: 5,
-					},
-					"Simultaneously"
-				)
+			tl.from(
+				group.current.position,
+				{
+					z: -10,
+					y: 2,
+					alpha: 0,
+					duration: 2,
+				},
+				"Simultaneously"
+			);
 
-				.to(
-					group.current.rotation,
-					{
-						x: a2r(360),
-						duration: 5,
-					},
-					"Simultaneously"
-				);
+			tl.to(
+				group.current.rotation,
+				{
+					x: a2r(360),
+					duration: 2,
+				},
+				"Simultaneously"
+			);
 		}
 	}, [group, actions.Animation, animations, mixer]);
 

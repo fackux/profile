@@ -33,26 +33,14 @@ const Three = () => {
 		<Suspense fallback={null}>
 			{/* Helpers de Escena */}
 			{/* <axesHelper scale={10.5} /> */}
+			
 
 			{/* Luces */}
-			<fog attach="fog" args={["white", 3, 10]} />
-			<ambientLight intensity={0.4} />
+			<ambientLight intensity={1} />
 			<directionalLight
 				castShadow
 				position={[2.5, 8, 5]}
-				intensity={1.5}
-				shadow-mapSize-width={1024}
-				shadow-mapSize-height={1024}
-				shadow-camera-far={50}
-				shadow-camera-left={-10}
-				shadow-camera-right={10}
-				shadow-camera-top={10}
-				shadow-camera-bottom={-10}
-			/>
-			<pointLight
-				position={[-10, 0, -20]}
 				intensity={2.5}
-				castShadow
 				shadow-mapSize-width={1024}
 				shadow-mapSize-height={1024}
 				shadow-camera-far={50}
@@ -60,18 +48,15 @@ const Three = () => {
 				shadow-camera-right={10}
 				shadow-camera-top={10}
 				shadow-camera-bottom={-10}
+				
 			/>
 			<pointLight
-				position={[0, -10, 0]}
-				intensity={1.5}
-				castShadow
-				shadow-mapSize-width={1024}
-				shadow-mapSize-height={1024}
-				shadow-camera-far={50}
-				shadow-camera-left={-10}
-				shadow-camera-right={10}
-				shadow-camera-top={10}
-				shadow-camera-bottom={-10}
+				position={[1, 2.45, 5]}
+				intensity={5}
+			/>
+			<pointLight
+				position={[-1, 2.45, 5]}
+				intensity={5}
 			/>
 
 			{/* Controld e Camera */}

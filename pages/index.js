@@ -1,6 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import Three from "../components/Three";
 import * as THREE from "three";
+import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
 
 const Homepage = () => {
 	return (
@@ -11,7 +12,15 @@ const Homepage = () => {
 				ctx.gl.physicallyCorrectLights = true;
 			}}
 		>
-			<Three />
+			<fog attach="fog" args={["white", 6, 10]} />
+
+			<EffectComposer smaa>
+				<Bloom />
+				<Three />
+			</EffectComposer>
+
+			
+			
 		</Canvas>
 	);
 };
